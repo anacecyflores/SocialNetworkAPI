@@ -36,6 +36,25 @@ const users = {
         res.status(500).json(err);
       });
   },
+  updateUser(req, res) {
+    userModel
+      .findOneAndUpdate(
+        { _id: req.params.id },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      )
+      .then((userDataDB) => {
+        if (!userDataDB) {
+          res.status(404).json({ message: "Can't Find User With This Id!" });
+          return;
+        }
+        res.json(userDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 };
 
 module.exports = users;
