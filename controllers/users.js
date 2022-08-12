@@ -93,6 +93,26 @@ const users = {
         res.status(500).json(err);
       });
   },
+
+  deleteFriend(req, res) {
+    userModel
+      .findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { friends: req.params.friendId } },
+        { new: true }
+      )
+      .then((friendDataDB) => {
+        if (!friendDataDB) {
+          res.status(404).json({ message: "This friend does not exist!" });
+          return;
+        }
+        res.json(friendDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 };
 
 module.exports = users;
