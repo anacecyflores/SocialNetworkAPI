@@ -14,6 +14,7 @@ const users = {
   getUsersById(req, res) {
     userModel
       .findOne({ _id: req.params.id })
+      .select("-__v")
       .then((userDataDB) => {
         if (!userDataDB) {
           res.status(404).json({ message: "No user found with this id!" });
@@ -66,6 +67,26 @@ const users = {
           return;
         }
         res.json(userDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
+
+  addFriend(req, res) {
+    userModel
+      .findOneAndUpdate(
+        { _id: req.params.userId },
+        { $push: { friends: req.params.friendId } },
+        { new: true }
+      )
+      .then((friendDataDB) => {
+        if (!friendDataDB) {
+          res.status(404).json({ message: "Can't Friend With This Id!" });
+          return;
+        }
+        res.json(friendDataDB);
       })
       .catch((err) => {
         console.error({ message: err });
