@@ -11,6 +11,22 @@ const users = {
       });
   },
 
+  getUsersById(req, res) {
+    userModel
+      .findOne({ _id: req.params.id })
+      .then((userDataDB) => {
+        if (!userDataDB) {
+          res.status(404).json({ message: "No user found with this id!" });
+          return;
+        }
+        res.json(userDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
+
   createUser(req, res) {
     userModel
       .create(req.body)
