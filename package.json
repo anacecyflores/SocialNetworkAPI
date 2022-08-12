@@ -1,14 +1,11 @@
 {
-  "name": "SocialNetworkAPI",
+  "name": "socialnetworkapi",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon index",
-    "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
+    "start": "node index"
   },
   "keywords": [],
   "author": "Ana Cecy Flores",
