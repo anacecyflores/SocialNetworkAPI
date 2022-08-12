@@ -36,6 +36,7 @@ const users = {
         res.status(500).json(err);
       });
   },
+
   updateUser(req, res) {
     userModel
       .findOneAndUpdate(
@@ -46,6 +47,22 @@ const users = {
       .then((userDataDB) => {
         if (!userDataDB) {
           res.status(404).json({ message: "Can't Find User With This Id!" });
+          return;
+        }
+        res.json(userDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
+
+  deleteUser(req, res) {
+    userModel
+      .findOneAndDelete({ _id: req.params.id })
+      .then((userDataDB) => {
+        if (!userDataDB) {
+          res.status(404).json({ message: "This user does not exist!" });
           return;
         }
         res.json(userDataDB);
