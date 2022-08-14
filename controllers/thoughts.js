@@ -11,32 +11,32 @@ const thoughts = {
       });
   },
 
-  //   getThoughtById(req, res) {
-  //     thoughtModel
-  //       .findOne({ _id: req.params.id })
-  //       .select("-__v")
-  //       .then((thoughtDataDB) => {
-  //         if (!thoughtDataDB) {
-  //           res.status(404).json({ message: "No user found with this id!" });
-  //           return;
-  //         }
-  //         res.json(thoughtDataDB);
-  //       })
-  //       .catch((err) => {
-  //         console.error({ message: err });
-  //         res.status(500).json(err);
-  //       });
-  //   },
+  getThoughtById(req, res) {
+    thoughtModel
+      .findOne({ _id: req.params.thoughtId })
+      .select("-__v")
+      .then((thoughtDataDB) => {
+        if (!thoughtDataDB) {
+          res.status(404).json({ message: "No thought found with this id!" });
+          return;
+        }
+        res.json(thoughtDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 
-  //   createThought(req, res) {
-  //     thoughtModel
-  //       .create(req.body)
-  //       .then((thoughtDataDB) => res.json(thoughtDataDB))
-  //       .catch((err) => {
-  //         console.error({ message: err });
-  //         res.status(500).json(err);
-  //       });
-  //   },
+  createThought(req, res) {
+    thoughtModel
+      .create(req.body)
+      .then((thoughtDataDB) => res.json(thoughtDataDB))
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 
   //   updateThought(req, res) {
   //     thoughtModel

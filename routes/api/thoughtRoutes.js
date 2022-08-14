@@ -8,12 +8,9 @@ const {
   deleteThought,
 } = require("../../controllers/thoughts.js");
 
-router.route("/").get(getAllThoughts);
-// .post(createThought);
+router.route("/").get(getAllThoughts).post(createThought);
 
-// router
-//   .route("/:id")
-//   .get(getThoughtById)
+router.route("/:thoughtId").get(getThoughtById);
 //   .put(updateThought)
 //   .delete(deleteThought);
 
