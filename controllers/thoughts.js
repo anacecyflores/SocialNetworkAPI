@@ -96,26 +96,25 @@ const thoughts = {
       });
   },
 
-  //   deletereaction
-  //   (req, res) {
-  //     userModel
-  //       .findOneAndUpdate(
-  //         { _id: req.params.userId },
-  //         { $pull: { friends: req.params.friendId } },
-  //         { new: true }
-  //       )
-  //       .then((friendDataDB) => {
-  //         if (!friendDataDB) {
-  //           res.status(404).json({ message: "This friend does not exist!" });
-  //           return;
-  //         }
-  //         res.json(friendDataDB);
-  //       })
-  //       .catch((err) => {
-  //         console.error({ message: err });
-  //         res.status(500).json(err);
-  //       });
-  //   },
+  deleteReaction(req, res) {
+    thoughtModel
+      .findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { new: true, runValidators: true }
+      )
+      .then((reactionDB) => {
+        if (!reactionDB) {
+          res.status(404).json({ message: "This reaction does not exist!" });
+          return;
+        }
+        res.json(reactionDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 };
 
 module.exports = thoughts;
