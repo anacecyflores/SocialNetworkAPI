@@ -1,5 +1,3 @@
-# SocialNetworkAPI
-
 # Social Network API
 
 [GitHub](https://img.shields.io/github/license/anacecyflores1/SocialNetworkApi)
@@ -64,11 +62,7 @@ npm start
 ## Screenshots
 
 <br>
-<img src="" alt="Mongo Compass" title="Mongo Compass DB">
-<br>
-<br>
-<img src="" alt="insomnia routes" title="Insomnia Dashboard">
-<br>
+<img src="/assets/mongo.png" alt="Mongo Compass DB" title="Mongo Compass DB">
 <br>
 
 ## Technologies Used
