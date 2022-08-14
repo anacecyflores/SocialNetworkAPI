@@ -38,25 +38,25 @@ const thoughts = {
       });
   },
 
-  //   updateThought(req, res) {
-  //     thoughtModel
-  //       .findOneAndUpdate(
-  //         { _id: req.params.id },
-  //         { $set: req.body },
-  //         { runValidators: true, new: true }
-  //       )
-  //       .then((thoughtDataDB) => {
-  //         if (!thoughtDataDB) {
-  //           res.status(404).json({ message: "Can't Find Thought With This Id!" });
-  //           return;
-  //         }
-  //         res.json(thoughtDataDB);
-  //       })
-  //       .catch((err) => {
-  //         console.error({ message: err });
-  //         res.status(500).json(err);
-  //       });
-  //   },
+  updateThought(req, res) {
+    thoughtModel
+      .findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      )
+      .then((thoughtDataDB) => {
+        if (!thoughtDataDB) {
+          res.status(404).json({ message: "Can't Find Thought With This Id!" });
+          return;
+        }
+        res.json(thoughtDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 
   //   deleteModel(req, res) {
   //     thoughtModel
