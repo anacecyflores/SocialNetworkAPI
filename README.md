@@ -2,11 +2,9 @@
 
 # Social Network API
 
-[GitHub](https://img.shields.io/github/license/anacecyflores1/social-network-api)
-[GitHub language count](https://img.shields.io/github/languages/count/anacecyflores1/social-network-api)
-[GitHub top language](https://img.shields.io/github/languages/top/anacecyflores1/social-network-api)
-
-<br><br>
+[GitHub](https://img.shields.io/github/license/anacecyflores1/SocialNetworkApi)
+[GitHub language count](https://img.shields.io/github/languages/count/anacecyflores1/SocialNetworkApi)
+[GitHub top language](https://img.shields.io/github/languages/top/anacecyflores1/SocialNetworkApi)
 
 ## Table of Contents
 
