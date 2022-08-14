@@ -58,21 +58,21 @@ const thoughts = {
       });
   },
 
-  //   deleteModel(req, res) {
-  //     thoughtModel
-  //       .findOneAndDelete({ _id: req.params.id })
-  //       .then((thoughtDataDB) => {
-  //         if (!thoughtDataDB) {
-  //           res.status(404).json({ message: "This thought does not exist!" });
-  //           return;
-  //         }
-  //         res.json(thoughtDataDB);
-  //       })
-  //       .catch((err) => {
-  //         console.error({ message: err });
-  //         res.status(500).json(err);
-  //       });
-  //   },
+  deleteThought(req, res) {
+    thoughtModel
+      .findOneAndDelete({ _id: req.params.thoughtId })
+      .then((thoughtDataDB) => {
+        if (!thoughtDataDB) {
+          res.status(404).json({ message: "This thought does not exist!" });
+          return;
+        }
+        res.json(thoughtDataDB);
+      })
+      .catch((err) => {
+        console.error({ message: err });
+        res.status(500).json(err);
+      });
+  },
 
   //   addFriend(req, res) {
   //     userModel
