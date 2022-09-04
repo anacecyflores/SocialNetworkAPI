@@ -1,4 +1,4 @@
-# Social Network API
+# Social Network API 👥
 ![GitHub](https://img.shields.io/github/license/anacecyflores1/SocialNetworkAPI)
 ![GitHub language count](https://img.shields.io/github/languages/count/anacecyflores1/SocialNetworkAPI)
 ![GitHub top language](https://img.shields.io/github/languages/top/anacecyflores1/SocialNetworkAPI)
